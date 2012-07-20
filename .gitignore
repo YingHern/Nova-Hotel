@@ -1,2 +1,56 @@
-fuel/app/logs/*/*/*
-fuel/app/cache/*/*
+-- --------------------------------------------------------
+-- Host:                         127.0.0.1
+-- Server version:               5.5.16 - MySQL Community Server (GPL)
+-- Server OS:                    Win32
+-- HeidiSQL version:             7.0.0.4053
+-- Date/time:                    2012-07-15 09:53:02
+-- --------------------------------------------------------
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET NAMES utf8 */;
+/*!40014 SET FOREIGN_KEY_CHECKS=0 */;
+
+-- Dumping structure for table phx381.ranks
+CREATE TABLE IF NOT EXISTS `ranks` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `badgeid` varchar(5) DEFAULT NULL,
+  `colour` varchar(50) DEFAULT 'blue',
+  `staff_page` enum('1','0') DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+
+-- Dumping data for table phx381.ranks: 9 rows
+/*!40000 ALTER TABLE `ranks` DISABLE KEYS */;
+INSERT INTO `ranks` (`id`, `name`, `badgeid`, `colour`, `staff_page`) VALUES
+  (1, 'User', NULL, NULL, NULL),
+	(2, 'VIP', 'VIP', NULL, NULL),
+	(3, 'Silver Hobba', 'NWB', NULL, NULL),
+	(4, 'Gold Hobba', 'HBA', NULL, NULL),
+	(5, 'Trial Moderator', 'HBA', 'green', '1'),
+	(6, 'Moderator', 'ADM', 'orange', '1'),
+	(7, 'Administrator', 'ADM', 'blue', '1'),
+	(8, 'Manager', 'NHM', 'blue2', '1'),
+	(9, 'Overlord', 'NHF', 'black', '1');
+/*!40000 ALTER TABLE `ranks` ENABLE KEYS */;
+/*!40014 SET FOREIGN_KEY_CHECKS=1 */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+
+-- Dumping structure for table phx381.cms_news
+CREATE TABLE IF NOT EXISTS `cms_news` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) COLLATE latin1_general_ci DEFAULT NULL,
+  `shortstory` text COLLATE latin1_general_ci,
+  `longstory` text COLLATE latin1_general_ci,
+  `published` varchar(30) COLLATE latin1_general_ci NOT NULL DEFAULT 'Unspecified',
+  `author` int(255) NOT NULL DEFAULT '1',
+  `image_position` varchar(50) COLLATE latin1_general_ci NOT NULL DEFAULT '0px 0px',
+  `image` varchar(500) COLLATE latin1_general_ci DEFAULT 'public/images/pic.png',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+
+-- Dumping data for table phx381.cms_news: 3 rows
+/*!40000 ALTER TABLE `cms_news` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cms_news` ENABLE KEYS */;
+/*!40014 SET FOREIGN_KEY_CHECKS=1 */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
